@@ -5,7 +5,8 @@
 To install the CLI at your global level and not tinker with the code directly, use:
 
 ```bash
-npm install -g raindrops-cli
+npm install -g @raindrops-protocol/raindrops-cli
+npm install -g @metaplex-foundation/mpl-token-metadata
 npm install -g ts-node
 ```
 
