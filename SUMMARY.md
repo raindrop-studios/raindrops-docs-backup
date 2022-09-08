@@ -38,7 +38,7 @@
   * [Build](contracts/item/build.md)
   * [Item Activation](contracts/item/item-activation.md)
 * [Player](contracts/player/README.md)
-  * [Overview](contracts/player/overview.md)
+  * [State](contracts/player/overview.md)
 * [Match](contracts/match/README.md)
   * [State](contracts/match/state.md)
   * [Life Cycle](contracts/match/life-cycle.md)
