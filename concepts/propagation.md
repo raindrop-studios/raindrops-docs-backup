@@ -7,7 +7,7 @@ Raindrops introduces the concept of permission-less updates(`--inheritance-updat
 {% tabs %}
 {% tab title="ItemClass" %}
 ```bash
-item-cli update_item_class \
+items-cli update_item_class \
          -k <keypair> \
          --env devnet \
          -cp example-configs/itemClass.json \
@@ -19,7 +19,7 @@ This tells the endpoint **not** to accept any changes to a child `ItemClass` exc
 
 {% tab title="ItemClass instance" %}
 ```
-item-cli update_item \
+items-cli update_item \
          -k <keypair> \
          --env devnet \
          -m DQKJRRHjyiS1DgDuMWtdD2Cy2nbLqEP86sQ8nnBQMv2w \
@@ -32,4 +32,4 @@ This updates the Item instance with the new `ItemUsageStates` that may arise fro
 {% endtab %}
 {% endtabs %}
 
-Similar logic exists for the [Player](https://github.com/long-banana/raindrops-docs/blob/main/concepts/broken-reference/README.md) contract.
+Similar logic exists for the [Player](https://github.com/long-banana/raindrops-docs/blob/main/concepts/broken-reference/README.md) contract, but instead of using --inheritance-update flag, simply use a null updatePermissivenessToUse inside the config JSON file (the -cp flag entry).

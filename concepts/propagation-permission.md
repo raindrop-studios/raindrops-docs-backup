@@ -1,6 +1,6 @@
 # Propagation Permission
 
-Permissions can be propagated from a parent class to a child class in either the fashion that overwrites the child array or is additive.
+Permissions can be propagated from a parent class to a child class in either a fashion that overwrites the child array or is additive.
 
 To specify which permissions get propagated, use the `child_update_propagation_permissiveness` array on the `Player` or `Item` classes.
 
@@ -13,6 +13,7 @@ pub struct ChildUpdatePropagationPermissiveness {
     child_update_propagation_permissiveness_type: ChildUpdatePropagationPermissivenessType,
 }
 
+// For Items
 pub enum ChildUpdatePropagationPermissivenessType {
     Usages,
     Components,
@@ -25,6 +26,26 @@ pub enum ChildUpdatePropagationPermissivenessType {
     Namespaces,
     FreeBuildPermissiveness,
 }
+
+// For Players
+pub enum ChildUpdatePropagationPermissivenessType {
+    UpdatePermissiveness,
+    InstanceUpdatePermissiveness,
+    BuildPermissiveness,
+    ChildUpdatePropagationPermissiveness,
+    ChildrenMustBeEditionsPermissiveness,
+    BuilderMustBeHolderPermissiveness,
+    StakingPermissiveness,
+    Namespaces,
+    EquipItemPermissiveness,
+    AddItemPermissiveness,
+    UseItemPermissiveness,
+    BasicStatTemplates,
+    DefaultCategory,
+    BodyParts,
+    StatsUri,
+}
+
 ```
 
-If you change this setting on an `ItemClass`, a permission-less `update_item_class` call can be made to the `Item` contract to enforce this down the `ItemClass`'s inheritance tree.
+If you change this setting on an `ItemClass`, a permission-less `update_item_class` call can be made to the `Item` contract to enforce this down the `ItemClass`'s inheritance tree. The same goes for `PlayerClasses` and `Players.`

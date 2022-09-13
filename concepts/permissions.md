@@ -1,6 +1,6 @@
 # Permissions
 
-There are four different permissions types supported by the five contracts:
+There are four different permissions types supported by the five contracts. When speaking here we'll be using the `Item` contract for examples, but this works equally well for the other contracts.
 
 * TokenHolder
 * ParentTokenHolder
@@ -9,21 +9,23 @@ There are four different permissions types supported by the five contracts:
 
 ### TokenHolder
 
-In order to do the action, the item class NFT must be held in the case of item creation or item class updates. The item NFT must be held in the case of item activation.
+In order to do the action, the token on which the action is being taken must be held by the signer of the transaction.
 
 ### ParentTokenHolder
 
-In order to do the action, the parent class of this class NFT must be held. In the case of item activation, it is the class of the item being activated.
+In order to do the action, the token on which the action is being taken must already have a predefined struct (like an `ItemClass` or an `Item`) and that struct must have its `parent` field set to a valid pubkey. That pubkey will point to the `ItemClass` of another NFT. The signer calling this action must be holding the NFT of that `parent` `ItemClass`.
 
 ### UpdateAuthority
 
-In order to do the action, the signer must be the update authority on the metadata of the item class or item.
+In order to do the action, the update authority of the `Metadata` of the token (as defined by the Token Metadata program) must be the signer on the transaction.
 
 ### Anybody
 
 Anybody can do this action. There are no requirements to be met.
 
-These permissions types are used to do certain things. In the item contract, for instance, you can set who is allowed to build an instance of an ItemClass, who can update it, who can stake against it, etc.
+### Use cases
+
+These permissiveness types are used to gate every kind of activity there is to do on any object across many of the contracts. In the item contract, for instance, you can set who is allowed to build an instance of an `ItemClass`, who can update it, who can stake against it, etc.
 
 Here is an example of an `ItemClassSettings` struct that has several fields/properties that use these permissions:
 
@@ -47,11 +49,11 @@ pub struct Permissiveness {
 }
 ```
 
-When performing an action against a raindrops contract, you must specify what type of permissiveness you want to use to do that action and that permissiveness will be checked against the existing array of permissions for the object being manipulated with that contract's endpoint.
+When performing an action against a Raindrops contract, you must specify what type of permissiveness you want to use to do that action and that permissiveness will be checked against the existing array of permissions for the object being manipulated with that contract's endpoint.
 
 The CLI will also use the permissiveness chosen to determine what additional accounts that might be needed to send in the instruction call to prove validity.
 
-Here’s an example configuration file for opening an item escrow, which is the first action one does to create an item from an item class using the Item contract:
+Here’s an example configuration file for opening an item escrow, which is the first action one does to create an `Item` from an `ItemClass` using the Item contract:
 
 ```json
 {
@@ -83,4 +85,4 @@ Here’s an example configuration file for opening an item escrow, which is the 
 }
 ```
 
-Notice that `buildPermissivenessToUse` is set to tokenHolder. This means that the `ItemClass` allows anybody holding the `ItemClass` NFT to use the `ItemClass` recipe to turn a non-raindrops NFT into an `Item` instance of this `ItemClass`. For instance, if you have an NFT that looks like a potion that you just made on a minting site, that does not mean it is an actual Potion that is used during play by Game X. If you hold the NFT representing the `ItemClass` for Potion, then you have the right to go through the creation process to turn this freshly minted NFT potion look-alike into an actual Potion that your game client can process during gameplay. At the end of this creation cycle you’ll have an Item PDA seeded to your potion NFT that allows it to be used within the game.
+Notice that `buildPermissivenessToUse` is set to tokenHolder. This means that the `ItemClass` allows anybody holding the `ItemClass` NFT to use the `ItemClass` recipe to turn a non-raindrops NFT into an `Item` instance of this `ItemClass`. For instance, if you have an NFT that looks like a potion that you just made on a minting website, that does not mean it is an actual Potion that is used during play by Game X. If you hold the NFT representing the `ItemClass` for Potion, then you have the right to go through the creation process to turn this freshly minted NFT potion look-alike into an actual Potion that your game client can process during gameplay. At the end of this creation cycle you’ll have an Item PDA seeded to your potion NFT that allows it to be used within the game.
