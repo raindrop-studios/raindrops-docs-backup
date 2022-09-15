@@ -1,4 +1,4 @@
-# Basic
+# Description
 
 As mentioned in the Introduction, the raindrops protocol is a series of 5 contracts running on Solana. These contracts govern on-chain or proof-on-chain data specifically for games, currently. This allows any player or item data to be interchangeable with any game client that wishes to process them.
 
@@ -18,7 +18,7 @@ What does this mean for gaming and what even is an ecosystem of connected games?
 
 Just like bitcoin introduced a trust-less way for anyone in the world to create and access transaction information for a currency moving from one wallet to another. Raindrops does this for gaming, but it's not specific to a game's economic transactions.
 
-The types of data raindrops makes available consists of [items](advanced/item.md), [players](advanced/player.md), [games](advanced/game.md), [matches](advanced/match.md) and [staking](advanced/staking.md). Having this data available on-chain enables games to do very cool things that have just never been possible, or were prohibitively expensive to do.
+The types of data raindrops makes available consists of [items](broken-reference), [players](broken-reference), [games](broken-reference), [matches](broken-reference) and [staking](broken-reference). Having this data available on-chain enables games to do very cool things that have just never been possible, or were prohibitively expensive to do.
 
 We should first break down why this actually matters for gaming (it's actually applicable beyond gaming, but let's start there) so we can better understand what it actually means.
 

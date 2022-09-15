@@ -16,16 +16,12 @@ The protocol source is available on GitHub:
 The Raindrops Protocol is in an alpha state and presently only two contracts are eligible for use on Mainnet-Beta (Item and Matches Contract). While we will try to maintain the integrity of PDAs created as contract development iterates, there is no guarantee that this will be possible.
 {% endhint %}
 
-## Explainer
+## Description
 
-Learn about what's possible with the raindrops protocol. Two levels of explanation is available:
+Learn about what's possible with the raindrops protocol
 
-{% content-ref url="description/basic.md" %}
-[basic.md](description/basic.md)
-{% endcontent-ref %}
-
-{% content-ref url="description/advanced/" %}
-[advanced](description/advanced/)
+{% content-ref url="description.md" %}
+[description.md](description.md)
 {% endcontent-ref %}
 
 ## Quick Start
@@ -42,14 +38,6 @@ There are several powerful concepts used across the raindrops protocol. They are
 
 {% content-ref url="concepts/" %}
 [concepts](concepts/)
-{% endcontent-ref %}
-
-## Guides
-
-Guides are easy-to-follow steps/recipes for how to integrate various common needs you'll have building out a blockchain-backed game
-
-{% content-ref url="guides/overview.md" %}
-[overview.md](guides/overview.md)
 {% endcontent-ref %}
 
 ## Contracts
