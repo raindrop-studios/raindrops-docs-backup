@@ -4,7 +4,7 @@ Namespace Gatekeepers are responsible for filtering which artifacts are allowed 
 
 ## Filters
 
-There are 3 different filter types and each type can be applied independently to each different type of artifact.
+There are 2 different filter types and each type can be applied independently to each different type of artifact.
 
 ### Filter Types
 

@@ -2,7 +2,7 @@
 
 ### Introduction
 
-All Artifacts like an Item or a Match can be joined and then cached to a Namespace. This extends to other Namespaces. Namespaces within namespaces allow you to create hierarchies/groupings of artifacts for fine-grained organization and indexability of your Artifacts. This greatly speeds up query speeds and accessibility within a large collection of Artifacts.
+All Artifacts, including Items, Matches and Players can be joined and then cached to a Namespace. This extends to other Namespaces. Namespaces within namespaces allow you to create hierarchies/groupings of artifacts for fine-grained organization and indexability of your Artifacts. This greatly speeds up query speeds and accessibility within a large collection of Artifacts.
 
 When an Artifact is first created, the creator can define the number of Namespaces an Artifact may join, which can be changed at any time through the UpdateNamespace instruction.
 
@@ -50,4 +50,4 @@ Full list of Artifacts that are joinable and cachable to any Namespace.
 * `Item`
 * `Match`
 * `Namespace`
-* `Player` _NOT IMPLEMENTED_
+* `Player`
