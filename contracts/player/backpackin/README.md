@@ -1,6 +1,6 @@
 # Backpackin'
 
-All `Players` come with the ability to add `Items` to their backpacks. They can even add other `Players` to their backpack too, provided those `Players` are also declared to be `Items`, something completely possible in the Raindrops framework. Something to think about here would be multiple fighters being stored in a Battlecruiser. Here's how to add an item to a player. First, you'll need a JSON file that meets the following basic format:
+All `Players` come with the ability to add `Items` to their backpacks. They can even add other `Players` to their backpack too, provided those `Players` are also declared to be `Items`, something completely possible in the Raindrops framework. Something to think about here would be multiple fighters being stored in a Battlecruiser. Here's how to add an `Item` to a `Player`. First, you'll need a JSON file that meets the following basic format:
 
 ```json
 {

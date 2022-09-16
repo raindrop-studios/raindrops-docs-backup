@@ -37,6 +37,8 @@
     * [Cleaning Up](contracts/player/playerclass-lifecycle/cleaning-up.md)
   * [Backpackin'](contracts/player/backpackin/README.md)
     * [Item Validations](contracts/player/backpackin/item-validations.md)
+  * [Equipping Items](contracts/player/equipping-items.md)
+  * [Using Items](contracts/player/using-items.md)
 * [Match](contracts/match/README.md)
   * [State](contracts/match/state.md)
   * [Life Cycle](contracts/match/life-cycle.md)

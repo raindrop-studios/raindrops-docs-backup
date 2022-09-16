@@ -13,30 +13,30 @@ pub struct ItemClass {
     bump: u8,
     existing_children: u64,
     item_class_data: {
-	    settings: {
-				// If true and no components present, build is free
-				// If false/none and no components present, nobody can build
-				free_build: Option<Boolean>,
-				// All new item NFTs must be limited editions of the item class NFT master edition
-		    children_must_be_editions: Option<Boolean>,
-				// Builder of the new item must be holding the NFT for that new item
-			  builder_must_be_holder: Option<Boolean>,
-		    update_permissiveness: Option<Vec<Permissiveness>>,
-		    build_permissiveness: Option<Vec<Permissiveness>>,
-		    staking_warm_up_duration: Option<u64>,
-		    staking_cooldown_duration: Option<u64>,
-		    staking_permissiveness: Option<Vec<Permissiveness>>,
-		    unstaking_permissiveness: Option<Vec<Permissiveness>>,
-		    child_update_propagation_permissiveness: Option<Vec<ChildUpdatePropagationPermissiveness>>,
-			},
-	    config: {
-				usage_root: Option<Root>,
-		    usage_state_root: Option<Root>,
-		    component_root: Option<Root>,
-		    usages: Option<Vec<ItemUsage>>,
-		    components: Option<Vec<Component>>,
-			},
-		}
+	settings: {
+	    // If true and no components present, build is free
+	    // If false/none and no components present, nobody can build
+	    free_build: Option<Boolean>,
+	    // All new item NFTs must be limited editions of the item class NFT master edition
+	    children_must_be_editions: Option<Boolean>,
+	    // Builder of the new item must be holding the NFT for that new item
+	    builder_must_be_holder: Option<Boolean>,
+	    update_permissiveness: Option<Vec<Permissiveness>>,
+	    build_permissiveness: Option<Vec<Permissiveness>>,
+	    staking_warm_up_duration: Option<u64>,
+	    staking_cooldown_duration: Option<u64>,
+	    staking_permissiveness: Option<Vec<Permissiveness>>,
+	    unstaking_permissiveness: Option<Vec<Permissiveness>>,
+	    child_update_propagation_permissiveness: Option<Vec<ChildUpdatePropagationPermissiveness>>,
+	},
+	config: {
+	    usage_root: Option<Root>,
+	    usage_state_root: Option<Root>,
+	    component_root: Option<Root>,
+	    usages: Option<Vec<ItemUsage>>,
+	    components: Option<Vec<Component>>,
+	},
+    }
 }
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone)]
