@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [NFT 2.0](nft-2.0.md)
 * [Description](description.md)
 * [Quick Start](quick-start.md)
 * [Concepts](concepts/README.md)
