@@ -1,6 +1,8 @@
-# NFT 2.0
+# NFTs <> Boots
 
-## NFT 1.0 Limitations
+Boots is a proprietary NFT upgrade service that exists on top of the Raindrops Protocol that allows NFT holders to trade and collect traits on their NFT in a controlled and fee-gated environment that produces reliable new revenue streams for NFT companies and the platform and is consistent with web3 principles.
+
+## Current Ecosystem Limitations
 
 ### People like customizing...and they can't
 
@@ -18,7 +20,7 @@ Releasing new sub-collections to revitalize revenue is a short-term salve. The l
 
 Royalties on Solana are unenforceable because the Token Program has no idea what they are, and doesn't care what they say when a user initiates a token transfer. There are no plans by the Solana team to merge the Token Metadata program into the Token Program at any point in the future to rectify this. The only real solution to this is to either turn the Token Metadata program into a clone of the Token Program, which is infeasible, or enforce royalties punitively, which does not have 100% efficacy.
 
-## NFT 2.0 - The Boots Solution
+## The Boots Solution
 
 ### Traits are Tokens
 
@@ -42,7 +44,7 @@ With the Project Boots system, while our marketplace does enforce royalties when
 
 When a user wishes to apply a new trait in their NFT's backpack, they could attempt to sign a transaction that tells the Raindrops protocol to do this, but it would fail because they lack permissions on Boots NFTs. They instead must cosign a transaction with the NFT Collection Owner. The Boots system will provide such a cosigned transaction, but this transaction will come with a standard 0.05 SOL fee as a side-instruction - which will be split 20% with the platform and 80% among the royalty recipients on the NFT Collections.
 
-This new revenue source is guaranteed by the protocol, cannot be bypassed, and while smaller in magnitude than a secondary sale, is going to happen significantly more frequently. Web2 has already proven the magnitude and power of microtransactions. This is the future of the NFT ecosystem and the future of your company.
+This new revenue source is guaranteed by the protocol, cannot be bypassed, and while smaller in magnitude than a secondary sale, is going to happen significantly more frequently. Web2 has already proven the magnitude and power of micro-transactions. This is the future of the NFT ecosystem and the future of your company.
 
-Welcome to NFT 2.0.
+Welcome to Boots.
 
