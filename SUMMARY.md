@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [NFTs <> Boots](nfts-less-than-greater-than-boots.md)
+* [NFTs <> Boots](boots.md)
 * [Description](description.md)
 * [Quick Start](quick-start.md)
 * [Concepts](concepts/README.md)
