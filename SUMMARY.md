@@ -52,3 +52,19 @@
   * [State](contracts/staking/overview.md)
   * [Warmup and Cooldown](contracts/staking/warmup-and-cooldown.md)
   * [Example](contracts/staking/example.md)
+
+## Services
+
+* [Boots](services/boots/README.md)
+  * [Boot-up](services/boots/boot-up/README.md)
+    * [Prerequisites](services/boots/boot-up/prerequisites.md)
+    * [Overview](services/boots/boot-up/overview.md)
+    * [Installation](services/boots/boot-up/installation.md)
+    * [Configuration File](services/boots/boot-up/configuration-file.md)
+    * [CLI Steps](services/boots/boot-up/cli-steps/README.md)
+      * [Step 1 - Create Main Class](services/boots/boot-up/cli-steps/step-1-create-main-class.md)
+      * [Step 2 - Create Item Collection](services/boots/boot-up/cli-steps/step-2-create-item-collection.md)
+      * [Step 3 - Create Item Classes](services/boots/boot-up/cli-steps/step-3-create-item-classes.md)
+      * [Step 4 - Create Players](services/boots/boot-up/cli-steps/step-4-create-players.md)
+      * [Step 5 - Verification](services/boots/boot-up/cli-steps/step-5-verification.md)
+      * [Example - Completed Boot-Up Configuration](services/boots/boot-up/cli-steps/example-completed-boot-up-configuration.md)
