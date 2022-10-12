@@ -56,6 +56,8 @@
 ## Services
 
 * [Boots](services/boots/README.md)
+  * [Asset Preparation](services/boots/asset-preparation/README.md)
+    * [PSD File](services/boots/asset-preparation/psd-file.md)
   * [Boot-up](services/boots/boot-up/README.md)
     * [Prerequisites](services/boots/boot-up/prerequisites.md)
     * [Overview](services/boots/boot-up/overview.md)
