@@ -70,3 +70,7 @@
       * [Step 4 - Create Players](services/boots/boot-up/cli-steps/step-4-create-players.md)
       * [Step 5 - Verification](services/boots/boot-up/cli-steps/step-5-verification.md)
       * [Example - Completed Boot-Up Configuration](services/boots/boot-up/cli-steps/example-completed-boot-up-configuration.md)
+* [Events](services/events/README.md)
+  * [Tournaments](services/events/tournaments/README.md)
+    * [Features](services/events/tournaments/features.md)
+    * [Flow](services/events/tournaments/flow.md)
