@@ -8,7 +8,7 @@
 2. Users can now enter the tournament if they meet all the requirements (token gating and paying the entry fee if specified)
 3. Optionally, add tournament rewards, this will escrow the funds on-chain. Adding rewards can be done throughout the entire tournament lifecycle.
 4. Update the tournament state to started, no more participants can join at this time
-5. Create a round of tournament matches, initial release assumes each match is a 1v1 scenario.
+5. Create a round of tournament matches.
 6. The tournament creator can now assign the participants to each match however they like and make each match as started.
 7. For each match, the creator will declare the winner and set the match to ended
 8. Continue creating new rounds within the tournament and pairing up participants until you determine a winner.

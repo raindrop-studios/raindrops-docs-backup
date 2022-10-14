@@ -74,3 +74,5 @@
   * [Tournaments](services/events/tournaments/README.md)
     * [Features](services/events/tournaments/features.md)
     * [Flow](services/events/tournaments/flow.md)
+    * [API](services/events/tournaments/api/README.md)
+      * [Guide](services/events/tournaments/api/guide.md)
