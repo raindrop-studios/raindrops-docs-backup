@@ -1,7 +1,5 @@
 # Events
 
-_**Events is set to roll out publicly throughout the next week. We are starting with the API, and then will introduce a UI so anyone can create and run events without having to write any code.**_
-
 Events is a free-form service that allows you to create an event that can be made up of any number of contests or objectives that an individual or group of individuals can participate in. These contests can have a single winner or you can apply rankings based on the performance of the individuals in the contest. Individuals in a contest can be grouped to form teams. In this scenario, an entire team can be declared as the winner.
 
 Entry to an event can require a payment via any SPL-token (USDC, $RAIN, ...), NFT, SFT, or Raindrops artifact(Item, Player). Upon entry to the event, participants can be granted an NFT to signify as their ticket. Holders of the event's entry NFT can then join contests, which may be free, require a specific type of entry NFT, and/or require an additional payment.
