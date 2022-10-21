@@ -12,10 +12,6 @@ The protocol source is available on GitHub:
 
 {% embed url="https://github.com/raindrops-protocol/raindrops" %}
 
-{% hint style="warning" %}
-The Raindrops Protocol is in an alpha state and presently only two contracts are eligible for use on Mainnet-Beta (Item and Matches Contract). While we will try to maintain the integrity of PDAs created as contract development iterates, there is no guarantee that this will be possible.
-{% endhint %}
-
 ## Description
 
 Learn about what's possible with the raindrops protocol
