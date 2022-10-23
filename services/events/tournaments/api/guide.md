@@ -3,10 +3,10 @@
 This first script highlights tournaments setup taken by the Tournament Authority, the Authority has full control over configuration, point and reward distribution.
 
 ```typescript
-import { Client } from "@raindrop-studios/tournaments-client";
+import { Http } from "@raindrop-studios/events-client";
 
 // tournament authority controls the tournament
-const authority = new http.Client(
+const authority = new Http.Tournaments.Client(
     `${os.homedir()}/.config/solana/id.json`,
     "mainnet-beta"
 );
@@ -31,10 +31,10 @@ await authority.addReward("tournamentPubkey", "rewardMint", "rewardAmount");
 With the Tournament configured, participants can now enter the tournament
 
 ```typescript
-import { Client } from "@raindrop-studios/tournaments-client";
+import { Http } from "@raindrop-studios/events-client";
 
 // A Participant initializes their client to enter the tournament
-const participant = new http.Client(
+const participant = new Http.Tournaments.Client(
     `${os.homedir()}/.config/solana/id.json`,
     "mainnet-beta"
 );
@@ -70,7 +70,7 @@ const participants = await authority.getParticipantsForRound("tournamentPubkey",
 
 // enter each participant into the match of your choosing
 // NOTE: this code only enters 1 participant into 1 match, it's open ended
-await authority.enterMatch("tournamentPubkey", "matchPubkey");
+await authority.enterMatch("tournamentPubkey", "matchPubkey", "participantPubkey");
 ```
 
 \~Matches are now played off chain\~
