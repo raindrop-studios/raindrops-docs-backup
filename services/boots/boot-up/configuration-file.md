@@ -293,6 +293,16 @@ would end up with an image file named
 
 This is the mint id for the collection that you intend to enable with Boots.
 
+
+
+### masterMint (publicKey) <a href="#collectionmint-publickey" id="collectionmint-publickey"></a>
+
+```json
+"masterMint": null,
+```
+
+This is the mint that will be used to represent the master PlayerClass for Boots. You can place the collectionMint here if you control it and are the UpdateAuthority but if you don't have those things - no worries as they are not required. You can leave it null, and we will make one automatically when the script runs.
+
 ### index (integer) <a href="#index-integer" id="index-integer"></a>
 
 ```json

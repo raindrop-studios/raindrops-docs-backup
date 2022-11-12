@@ -8,218 +8,151 @@ Once you have completed all 4 steps to enable your collection to work with Boots
 
 1. Search for `existingClassDef` in the file and copy the object into a new configuration file.  We will name this bootsPlayerConfig.json for the purposes of this example.
 
-<pre class="language-json" data-overflow="wrap" data-line-numbers><code class="lang-json">{
-        "data": {
-            "settings": {
-                "defaultCategory": {
-                    "category": "panda",
-<strong>                    "inherited": {
-</strong>                        "notInherited": true
-                    }
-                },
-                "childrenMustBeEditions": {
-                    "boolean": false,
-                    "inherited": {
-                        "notInherited": true
-                    }
-                },
-                "builderMustBeHolder": {
-                    "boolean": false,
-                    "inherited": {
-                        "notInherited": true
-                    }
-                },
-                "updatePermissiveness": [
-                    {
-                        "permissivenessType": {
-                            "updateAuthority": true
-                        },
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    }
-                ],
-                "instanceUpdatePermissiveness": [
-                    {
-                        "permissivenessType": {
-                            "updateAuthority": true
-                        },
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    }
-                ],
-                "buildPermissiveness": [
-                    {
-                        "permissivenessType": {
-                            "updateAuthority": true
-                        },
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    }
-                ],
-                "equipItemPermissiveness": [
-                    {
-                        "permissivenessType": {
-                            "updateAuthority": true
-                        },
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    }
-                ],
-                "addItemPermissiveness": [
-                    {
-                        "permissivenessType": {
-                            "updateAuthority": true
-                        },
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    }
-                ],
-                "useItemPermissiveness": [
-                    {
-                        "permissivenessType": {
-                            "updateAuthority": true
-                        },
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    }
-                ],
-                "unequipItemPermissiveness": null,
-                "removeItemPermissiveness": null,
-                "stakingWarmUpDuration": null,
-                "stakingCooldownDuration": null,
-                "stakingPermissiveness": null,
-                "unstakingPermissiveness": null,
-                "childUpdatePropagationPermissiveness": []
-            },
-            "config": {
-                "startingStatsUri": null,
-                "basicStats": [
-                    {
-                        "index": 0,
-                        "name": "mutationLevel",
-                        "inherited": {
-                            "notInherited": true
-                        },
-                        "statType": {
-                            "enum": {
-                                "starting": 0,
-                                "values": [
-                                    {
-                                        "name": "NA",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "Lvl1",
-                                        "value": 1
-                                    },
-                                    {
-                                        "name": "Lvl2",
-                                        "value": 2
-                                    },
-                                    {
-                                        "name": "Lvl3",
-                                        "value": 3
-                                    },
-                                    {
-                                        "name": "Lvl4",
-                                        "value": 4
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "index": 1,
-                        "name": "BACKGROUND",
-                        "inherited": {
-                            "notInherited": true
-                        },
-                        "statType": {
-                            "string": {
-                                "starting": "unset"
-                            }
-                        }
-                    },
-                    {
-                        "index": 2,
-                        "name": "FUR",
-                        "inherited": {
-                            "notInherited": true
-                        },
-                        "statType": {
-                            "string": {
-                                "starting": "unset"
-                            }
-                        }
-                    }
-                ],
-                "bodyParts": [
-                    {
-                        "index": 0,
-                        "bodyPart": "DUMPSTER",
-                        "totalItemSpots": 1,
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    },
-                    {
-                        "index": 1,
-                        "bodyPart": "BODY",
-                        "totalItemSpots": 1,
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    },
-                    {
-                        "index": 2,
-                        "bodyPart": "HEAD",
-                        "totalItemSpots": 1,
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    },
-                    {
-                        "index": 3,
-                        "bodyPart": "MOUTH",
-                        "totalItemSpots": 1,
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    },
-                    {
-                        "index": 4,
-                        "bodyPart": "GLASSES",
-                        "totalItemSpots": 1,
-                        "inherited": {
-                            "notInherited": true
-                        }
-                    }
-                ],
-                "equipValidation": null,
-                "addToPackValidation": null
+{% code overflow="wrap" lineNumbers="true" %}
+```json
+ {
+    "data": {
+      "settings": {
+        "defaultCategory": {
+          "category": "panda",
+          "inherited": { "notInherited": true }
+        },
+        "childrenMustBeEditions": {
+          "boolean": false,
+          "inherited": { "notInherited": true }
+        },
+        "builderMustBeHolder": {
+          "boolean": false,
+          "inherited": { "notInherited": true }
+        },
+        "updatePermissiveness": [
+          {
+            "permissivenessType": { "tokenHolder": true },
+            "inherited": { "notInherited": true }
+          }
+        ],
+        "instanceUpdatePermissiveness": [
+          {
+            "permissivenessType": { "parentTokenHolder": true },
+            "inherited": { "notInherited": true }
+          }
+        ],
+        "buildPermissiveness": [
+          {
+            "permissivenessType": { "tokenHolder": true },
+            "inherited": { "notInherited": true }
+          }
+        ],
+        "equipItemPermissiveness": [
+          {
+            "permissivenessType": { "parentTokenHolder": true },
+            "inherited": { "notInherited": true }
+          }
+        ],
+        "addItemPermissiveness": [
+          {
+            "permissivenessType": { "parentTokenHolder": true },
+            "inherited": { "notInherited": true }
+          }
+        ],
+        "useItemPermissiveness": [
+          {
+            "permissivenessType": { "parentTokenHolder": true },
+            "inherited": { "notInherited": true }
+          }
+        ],
+        "unequipItemPermissiveness": null,
+        "removeItemPermissiveness": null,
+        "stakingWarmUpDuration": null,
+        "stakingCooldownDuration": null,
+        "stakingPermissiveness": null,
+        "unstakingPermissiveness": null,
+        "childUpdatePropagationPermissiveness": []
+      },
+      "config": {
+        "startingStatsUri": null,
+        "basicStats": [
+          {
+            "index": 0,
+            "name": "mutationLevel",
+            "inherited": { "notInherited": true },
+            "statType": {
+              "enum": {
+                "starting": 0,
+                "values": [
+                  { "name": "NA", "value": 0 },
+                  { "name": "Lvl1", "value": 1 },
+                  { "name": "Lvl2", "value": 2 },
+                  { "name": "Lvl3", "value": 3 },
+                  { "name": "Lvl4", "value": 4 }
+                ]
+              }
             }
-        },
-        "metadataUpdateAuthority": null,
-        "storeMint": true,
-        "storeMetadataFields": true,
-        "mint": "BNpznqP6Rfy8LhPHEQ23qBYFiAueKiXx9jRaW6WnTo1z",
-        "index": 0,
-        "updatePermissivenessToUse": {
-            "updateAuthority": true
-        },
-        "namespaceRequirement": 1,
-        "totalSpaceBytes": 739
-    }</code></pre>
+          },
+          {
+            "index": 1,
+            "name": "BACKGROUND",
+            "inherited": { "notInherited": true },
+            "statType": { "string": { "starting": "unset" } }
+          },
+          {
+            "index": 2,
+            "name": "FUR",
+            "inherited": { "notInherited": true },
+            "statType": { "string": { "starting": "unset" } }
+          }
+        ],
+        "bodyParts": [
+          {
+            "index": 0,
+            "bodyPart": "GLASSES",
+            "totalItemSpots": 1,
+            "inherited": { "notInherited": true }
+          },
+          {
+            "index": 1,
+            "bodyPart": "DUMPSTER",
+            "totalItemSpots": 1,
+            "inherited": { "notInherited": true }
+          },
+          {
+            "index": 2,
+            "bodyPart": "BODY",
+            "totalItemSpots": 1,
+            "inherited": { "notInherited": true }
+          },
+          {
+            "index": 3,
+            "bodyPart": "HEAD",
+            "totalItemSpots": 1,
+            "inherited": { "notInherited": true }
+          },
+          {
+            "index": 4,
+            "bodyPart": "MOUTH",
+            "totalItemSpots": 1,
+            "inherited": { "notInherited": true }
+          }
+        ],
+        "equipValidation": null,
+        "addToPackValidation": null
+      }
+    },
+    "metadataUpdateAuthority": null,
+    "storeMint": true,
+    "storeMetadataFields": true,
+    "mint": "GmSRDXiXgvNo7UEx3rNvPCqD6aSreJaXT51tfq6ATXTK",
+    "index": 0,
+    "updatePermissivenessToUse": { "parentTokenHolder": true },
+    "namespaceRequirement": 1,
+    "totalSpaceBytes": 739
+  }
+```
+{% endcode %}
 
-2\. Make sure you know the location of your Update Authority keypair file.  For our purposes, we will name this bootsUpdateAuth.json and put it in the same location as the config file from step 1.
+2\. Make sure you know the location of your keypair file.  For our purposes, we will name this bootsUpdateAuth.json and put it in the same location as the config file from step 1.
 
-3\. You will also need the Collection Mint Id.  You can find that in the "mint" key from the configuration file you created in step 1.  For our purposes here we will be using the Mint Id `BNpznqP6Rfy8LhPHEQ23qBYFiAueKiXx9jRaW6WnTo1z`
+3\. You will also need the masterMint.  You can find that in the "masterMint" key from the configuration file you created in step 1.  For our purposes here we will be using the Mint Id `BNpznqP6Rfy8LhPHEQ23qBYFiAueKiXx9jRaW6WnTo1z`
 
 4\. Use the following command to show the Player class:
 
@@ -243,26 +176,26 @@ Player Class 9QQgCvCzuveTtdUb6is3BTsexsWYrGDoxdb51tzz62tH
 Namespaces: [ undefined ]
 Parent: None
 Mint: BNpznqP6Rfy8LhPHEQ23qBYFiAueKiXx9jRaW6WnTo1z
-Metadata: 14YvmTxvYtFpwzeCz8Qt153TUEG2kHkSRj1S1RRSagX
-Edition: 3sEntW96NTEX8jZkv9Zsn6kZQJa7ShFSY8kMaFXBxYNb
-Existing Children: 45
+Metadata: CgAzk9iFnciye3yoh1bufFbeQWgadtFjx9C4E73mEYP4
+Edition: Dj4gasLLVoKLd8D8rQoHwFHbGwkMPbsHD8bR455aYwqR
+Existing Children: 1
 Player Class Data:
 --> Player Class Settings:
 ----> Default Category (notInherited): panda
 ----> Children must be editions (notInherited): false
 ----> Builder must be holder (notInherited): false
 ----> Update Permissiveness:
-------> (notInherited) updateAuthority
+------> (notInherited) tokenHolder
 ----> Instance Update Permissiveness:
-------> (notInherited) updateAuthority
+------> (notInherited) parentTokenHolder
 ----> Build Permissiveness:
-------> (notInherited) updateAuthority
+------> (notInherited) tokenHolder
 ----> Equip Item Permissiveness:
-------> (notInherited) updateAuthority
+------> (notInherited) parentTokenHolder
 ----> Add Item Permissiveness:
-------> (notInherited) updateAuthority
+------> (notInherited) parentTokenHolder
 ----> Use Item Permissiveness:
-------> (notInherited) updateAuthority
+------> (notInherited) parentTokenHolder
 ----> Unequip Item Permissiveness:
 ----> Remove Item Permissiveness:
 ----> Staking warm up duration: Not Set
@@ -292,27 +225,27 @@ Player Class Data:
 ----> Body Parts:
 ------> Index: 0
 ------> Inherited: notInherited
-------> Body Part: DUMPSTER
+------> Body Part: GLASSES
 ------> Total item spots: 1
 ------
 ------> Index: 1
 ------> Inherited: notInherited
-------> Body Part: BODY
+------> Body Part: DUMPSTER
 ------> Total item spots: 1
 ------
 ------> Index: 2
 ------> Inherited: notInherited
-------> Body Part: HEAD
+------> Body Part: BODY
 ------> Total item spots: 1
 ------
 ------> Index: 3
 ------> Inherited: notInherited
-------> Body Part: MOUTH
+------> Body Part: HEAD
 ------> Total item spots: 1
 ------
 ------> Index: 4
 ------> Inherited: notInherited
-------> Body Part: GLASSES
+------> Body Part: MOUTH
 ------> Total item spots: 1
 ------
 -------
