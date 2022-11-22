@@ -31,10 +31,12 @@ Path: /addEntryFeeAsReward
 Parameters:
 - Tournament: PublicKey
 - Authority: PublicKey, Signer
+Returns:
+- Reward PublicKey
 ```
 
 <pre class="language-typescript"><code class="lang-typescript"><strong>// Tournaments Client
-</strong><strong>await authority.addEntryFeeAsReward("&#x3C;tournamentPubkey>")</strong></code></pre>
+</strong><strong>const reward =await authority.addEntryFeeAsReward("&#x3C;tournamentPubkey>")</strong></code></pre>
 
 ### AddReward
 
@@ -49,13 +51,15 @@ Parameters:
 - Authority: PublicKey, Signer
 - RewardMint: PublicKey
 - RewardAmount: String
+Returns:
+- Reward PublicKey
 ```
 
 ```typescript
-await authority.addReward("<tournamentPubkey", "<rewardMint>", "<rewardAmount>");
+const reward =await authority.addReward("<tournamentPubkey", "<rewardMint>", "<rewardAmount>");
 
 // Example: create a reward of 1 $USDC
-await authority.addReward("<tournamentPubkey", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", "100000");
+const reward =await authority.addReward("<tournamentPubkey", "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", "100000");
 ```
 
 ### BanCheater
@@ -83,10 +87,12 @@ Parameters:
 - Authority: PublicKey, Signer
 - ParticipantsPerMatch: Integer
 - RoundIndex: Integer
+Returns:
+- Matches Addresses PublicKey[]
 ```
 
 ```typescript
-await authority.createRound("<tournamentPubkey>", participantsPerRound, roundIndex)
+const matches =await authority.createRound("<tournamentPubkey>", participantsPerRound, roundIndex)
 ```
 
 ### CreateTournament
@@ -112,6 +118,8 @@ Parameters:
 - TokenGate: Optional
     - TokenGateMint: PublicKey
     - TokenGateAmount: String
+Returns:
+- Tournament PublicKey
 ```
 
 ```typescript
@@ -125,22 +133,22 @@ const tournament = await authority.createTournament("Entry Fee Tournament", 4, {
 const tournament = await authority.createTournament("Entry Fee Tournament", 4, null, { mint: PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"), amount: anchor.BN(100000) });
 ```
 
-### DistributeRewardToWinner
+### DistributeReward
 
-Distribute the tokens stored in the Tournament Reward Escrow to the Tournament Winner. This endpoint is only callable by a Tournament Authority.
-
-Currently, only 1 Reward and 1 Winner can be chosen, and the full amount stored in the Escrow is transferred, we will be releasing a more flexible option which will enable multiple rewards and multiple winners.
+Distribute the tokens stored in a Tournament Reward Escrow to a Tournament Participant
 
 ```markdown
-Path: /distributeRewardToWinner
+Path: /distributeReward
 Parameters:
 - Tournament: PublicKey
-- Authority: PublicKey, Signer
-- Winner: PublicKey
+- Authority: PublicKey, signer
+- Participant: PublicKey
+- Reward: PublicKey
+- RewardAmount: string
 ```
 
 ```typescript
-await authority.distributeRewardToWinner("<tournamentPubkey>", "<winnerPubkey>");
+await authority.distributeReward("<tournamentPubkey>", "<participantPubkey>", "<rewardPubkey>", "<rewardAmount>");
 ```
 
 ### EndMatch
@@ -232,13 +240,15 @@ await authority.finalizeTournament("<tournamentPubkey>");
 Retrieve Match Details in JSON format
 
 ```markdown
-Path: /getMatch
+Path: /match
 Parameters:
 - Match: PublicKey
+Returns:
+- Match Data
 ```
 
 ```typescript
-const matchDetails = await authority.getMatch("<matchPubkey>");
+const matchData = await authority.getMatch("<matchPubkey>");
 ```
 
 ### GetMatchesByRound
@@ -246,11 +256,13 @@ const matchDetails = await authority.getMatch("<matchPubkey>");
 Retrieve all Matches of a particular Round in a tournament. Use the Round Index to select a particular round. Flip the finalized Boolean if you would like to selectively retrieve Matches which are finalized or not.
 
 ```markdown
-Path: /getMatchesByRound
+Path: /matchesByRound
 Parameters:
 - Tournament: PublicKey
 - RoundIndex: Integer
 - Finalized: Boolean
+Returns:
+- Matches PublicKey[]
 ```
 
 ```typescript
@@ -262,10 +274,12 @@ const matches = await authority.getMatchesByRound("<tournamentPubkey>", roundInd
 Retrieve all participants for a particular Match.
 
 ```markdown
-Path: /getMatchParticipants
+Path: /matchParticipants
 Parameters:
 - Tournament: PublicKey
 - Match: PublicKey
+Returns:
+- Participants: PublicKey[]
 ```
 
 ```typescript
@@ -277,10 +291,12 @@ const participants = await authority.getMatchParticipants("<tournamentPubkey>", 
 Retrieve all participants who are eligible for a particular Round, regardless if they have entered a Match in that Round or not.
 
 ```markdown
-Path: /getParticipantsForRound
+Path: /participantsForRound
 Parameters:
 - Tournament: PublicKey
 - RoundIndex: Integer
+Returns:
+- Participants: PublicKey[]
 ```
 
 ```typescript
@@ -292,9 +308,11 @@ const participants = await authority.getParticipantsForRound("<tournamentPubkey>
 Retrieve current Tournament Standings sorted descending from most points awarded. For each Match win a participant is awarded 1 Tournament Point.
 
 ```markdown
-Path: /getStandings
+Path: /standings
 Parameters:
 - Tournament: PublicKey
+Returns:
+- Standings: string[][] -- "<particpantPubkey>", "<pointsAmount>" -- sorted descending
 ```
 
 ```typescript
@@ -306,13 +324,15 @@ const standings = await authority.getStandings("<tournamentPubkey>");
 Retrieve Tournament Details in JSON format
 
 ```markdown
-Path: /getTournament
+Path: /tournament
 Parameters:
 - Tournament: PublicKey
+Returns:
+- Tournament Data
 ```
 
 ```typescript
-const tournamentDetails = await authority.getTournament("<tournamentPubkey>");
+const tournamentData = await authority.getTournament("<tournamentPubkey>");
 ```
 
 ### SetMatchResult

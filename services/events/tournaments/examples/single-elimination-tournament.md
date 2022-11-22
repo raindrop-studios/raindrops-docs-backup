@@ -1,4 +1,4 @@
-# Guide
+# Single Elimination Tournament
 
 This first script highlights tournaments setup taken by the Tournament Authority, the Authority has full control over configuration, point and reward distribution.
 
@@ -109,10 +109,14 @@ await tournamentAuthority.endTournament("<tournamentPubkey>");
 // Use points to keep track of participant progress
 const finalStandings = await tournamentAuthority.getStandings("<tournamentPubkey>");
 
+// get a reward account
+const rewards = await tournamentAuthority.getRewards("<tournamentPubkey>");
+const rewardData = await tournamentAuthority.getReward(rewards[0]);
+
 // In our simple tournament, it's winner take all
 // distribute our rewards to the winner
 // NOTE: rewards can be distributed to any number of participants
-await tournamentAuthority.distributeRewardToWinner("<tournamentPubkey>", finalStandings[0][0]);
+await tournamentAuthority.distributeReward("<tournamentPubkey>", finalStandings[0][0], rewardData.address, rewardData.balance);
 
 // Once rewards have been distributed, finalize the tournament to make it immutable
 await tournamentAuthority.finalizeTournament("<tournamentPubkey>");
