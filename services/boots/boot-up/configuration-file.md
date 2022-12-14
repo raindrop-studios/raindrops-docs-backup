@@ -293,7 +293,13 @@ would end up with an image file named
 
 This is the mint id for the collection that you intend to enable with Boots.
 
+### itemCollectionFile (string)
 
+This is an optional path to an image file used when creating the collection for items. If this is not set, the first bodyPartLayer trait image file will be used.
+
+```json
+"itemCollectionFile": "/Users/myUser/Documents/pandaItemCollectionImage.png",
+```
 
 ### masterMint (publicKey) <a href="#collectionmint-publickey" id="collectionmint-publickey"></a>
 
