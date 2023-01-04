@@ -125,6 +125,33 @@ item-cli show_item \
 
 You’ll need to supply the `mint` and `index` offset.
 
+Or from the client side:
+
+<pre class="language-typescript"><code class="lang-typescript">import { ItemProgram, Utils } from "@raindrops-protocol/raindrops";
+<strong>
+</strong><strong>const getItem = async(
+</strong>	mint: web3.PublicKey,
+	itemIndex: BN,
+	wallet: Wallet,
+	env: string,
+	customRpcUrl: string
+) => {
+    const [itemKey] = await Utils.PDA.getItemPDA(
+      mint,
+      itemIndex
+    );
+<strong>    const itemProgram = ItemProgram.getProgramWithWallet(
+</strong>        ItemProgram,
+        anchorWallet as Wallet,
+        env,
+        customRpcUrl
+      );
+    return (await itemProgram.client.account.item.fetch(
+        itemKey
+      )) as unknown as FetchedItem;
+};
+</code></pre>
+
 Want to cut out before you finish crafting? Simply deactivate and reclaim lamports:
 
 ```bash

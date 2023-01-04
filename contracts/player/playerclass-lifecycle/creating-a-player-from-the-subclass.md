@@ -46,6 +46,104 @@ player-cli show_player -cp buildPlayer.json
                         -e mainnet-beta
 ```
 
+Or from the client side:
+
+```typescript
+import {
+  ItemProgram,
+  PlayerProgram,
+  State,
+  Utils,
+  getItemProgram,
+} from "@raindrops-protocol/raindrops";
+import { Instruction as InstructionUtils } from "@raindrop-studios/sol-kit";
+
+const { getMetadata, getEdition, getPlayerPDA } = Utils.PDA;
+
+const getPlayer = async (
+  mint: web3.PublicKey,
+  playerIndex: BN,
+  wallet: Wallet,
+  env: string,
+  customRpcUrl: string
+) => {
+  const [playerKey] = await getPlayerPDA(mint, playerIndex);
+  const playerProgram = await PlayerProgram.getProgramWithWallet(
+    PlayerProgram,
+    wallet,
+    env,
+    customRpcUrl
+  );
+  const playerData = await playerProgram.client.account.player.fetch(
+    playerKey,
+    "confirmed"
+  );
+  const player: Partial<Player> = await decodePlayer(
+    playerData as unknown as PlayerData,
+    playerProgram,
+    playerKey,
+    playerIndex,
+    mint
+  );
+  return player;
+};
+
+const getPlayerClass = async (key: string, playerProgram: PlayerProgram) => {
+  const playerClass = await playerProgram.client.account.playerClass.fetch(key);
+  return playerClass;
+};
+
+async function decodePlayer(
+  playerData: PlayerData,
+  playerProgram: PlayerProgram,
+  playerKey: PublicKey,
+  playerIndex: BN,
+  mint: PublicKey
+) {
+  const { parent, ...otherPlayerData } = playerData;
+  if(!otherPlayerData.mint) {
+    otherPlayerData.mint = mint;
+    //@ts-ignore
+    otherPlayerData.metadata = await getMetadata(mint);
+    otherPlayerData.edition = await getEdition(mint);
+  }
+  const player: Partial<Player> = InstructionUtils.convertTypeToType(
+    { ...otherPlayerData, index: playerIndex },
+    [
+      "activeItemCounter",
+      "classIndex",
+      "equippedItems.[].amount",
+      "itemsInBackpack",
+      "tokensPaidIn",
+      "tokensStaked",
+      "index",
+    ],
+    BN,
+    (arg: BN) => arg.toNumber()
+  );
+  if (parent) {
+    const parentData: any = await getPlayerClass(
+      parent.toString(),
+      playerProgram
+    );
+    player.parent = InstructionUtils.convertTypeToType(
+      {
+        basicStats: parentData.data.config.basicStats,
+        bodyParts: parentData.data.config.bodyParts,
+        mint: parentData.mint,
+      },
+      ["bodyParts.[].totalItemSpots"],
+      BN,
+      (arg: BN) => arg.toNumber()
+    );
+  }
+  player.key = playerKey;
+  return player as Player;
+}
+```
+
+
+
 You'll get something like this:
 
 ```bash

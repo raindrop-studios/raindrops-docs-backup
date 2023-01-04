@@ -69,6 +69,8 @@
       * [Step 4 - Create Players](services/boots/boot-up/cli-steps/step-4-create-players.md)
       * [Step 5 - Verification](services/boots/boot-up/cli-steps/step-5-verification.md)
       * [Example - Completed Boot-Up Configuration](services/boots/boot-up/cli-steps/example-completed-boot-up-configuration.md)
+  * [Preview Image](services/boots/preview-image.md)
+  * [Manipulate](services/boots/manipulate.md)
 * [Events](services/events/README.md)
   * [Tournaments](services/events/tournaments/README.md)
     * [API Reference](services/events/tournaments/api-reference/README.md)

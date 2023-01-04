@@ -146,3 +146,18 @@ item-cli show_item_class \
          --env devnet \
          -cp example-configs/itemClass.json
 ```
+
+Or from the client side, fetch an item class like this:
+
+```typescript
+import { State } from "@raindrops-protocol/raindrops";
+
+const getItemClass = async (
+  itemClassKey: web3.PublicKey,
+  connection: Connection
+) => {
+  const accountInfo = await connection.getAccountInfo(itemClassKey);
+  if (!accountInfo?.data) return undefined;
+  return State.Item.decodeItemClass(accountInfo.data);
+};
+```
