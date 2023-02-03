@@ -108,7 +108,7 @@ This is an array of configuration sets for other non-graphical statistics that y
 "itemsWillBeSFTs": true,
 ```
 
-if true, these items will be created as Semi-Fungible Tokens (SFTs).  The Raindrops protocol only supports SFTs at this time, as Non-Fungible Tokens (NFTs) are prohibitively expensive to use as Items.
+if true, these items will be created as Semi-Fungible Tokens (SFTs).&#x20;
 
 ### className (text):
 
@@ -234,21 +234,9 @@ Set this to true to allow a holder to be able to equip their NFT in this collect
   }
 ```
 
-This is where you are defining the items that will be able to be equipped on your players. It is an abstraction of a layered set of images defined within a .PSD file. They MUST match the layer names in your base .PSD file in order for the Boots image processor to find the correct layer. Here is an example of this concept:
+This is where you are defining the items that will be able to be equipped on your players.
 
-<div>
-
-<figure><img src="../../../.gitbook/assets/Example-PhotoshopLayers.png" alt="PSD Layers"><figcaption><p>PSD Layers</p></figcaption></figure>
-
- 
-
-<figure><img src="../../../.gitbook/assets/Example-itemClassLookup.png" alt="ItemClassLookup image"><figcaption><p>ItemClassLookup</p></figcaption></figure>
-
-</div>
-
-The yellow border is the name of the parent layer for the attribute, and the blue border shows the options for that layer. And you can see on the itemClassLookup that the MOUTH layer is the key for this itemClassLookup, and each key of the corresponding object has the name of the layer you want to enable.
-
-For each image layer, you will add a default boilerplate entry.&#x20;
+For each item, you will add a default boilerplate entry.&#x20;
 
 ```json
 { "existingClassDef": null, "address": null }
